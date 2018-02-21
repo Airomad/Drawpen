@@ -7,6 +7,7 @@ export default class HandTool extends Tool {
     super(props);
     this.setIconComponent(Icon);
     this.setIconSize(20, 31);
+    this.setToolId('HAND_TOOL');
   }
 
   render() {

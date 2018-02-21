@@ -7,6 +7,7 @@ export default class PenTool extends Tool {
     super(props);
     this.setIconComponent(Icon);
     this.setIconSize(26, 26);
+    this.setToolId('PEN_TOOL');
   }
 
   render() {

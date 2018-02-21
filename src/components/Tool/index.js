@@ -4,6 +4,7 @@ import style from './style.scss';
 export default class Tool extends React.Component {
   constructor(props) {
     super(props);
+    this._id = 0;
     this.IconComponent = null;
     this.iconWidth = 26;
     this.iconHeight = 26;
@@ -21,6 +22,10 @@ export default class Tool extends React.Component {
     this.iconHeight = height;
   }
 
+  setToolId(id) {
+    this._id = id;
+  }
+
   toggleHover = () => {
     this.setState({
       isHover: !this.state.isHover
@@ -29,7 +34,7 @@ export default class Tool extends React.Component {
 
   renderTool() {
     const Icon = this.IconComponent;
-    const iconColor = this.state.isHover ? '#3AF0AE' : '#646464';
+    const iconColor = this.props.selectedToolId === this._id || this.state.isHover ? '#3AF0AE' : '#646464';
     return (
       <div className={style.container} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
         <div className={style.icon} style={{width: this.iconWidth, height: this.iconHeight}}>

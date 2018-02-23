@@ -16,13 +16,29 @@
     left: 0px;
     top: 55px;
     width: 150px;
-    padding-left: 11px;
-    padding-right: 11px;
+    height: auto;
     padding-top: 13px;
     padding-bottom: 13px;
     background: linear-gradient(180deg, #1F2227 0%, #181C1E 100%);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.75);
     border-radius: 7px;
+
+    .dropdownElement {
+      height: 32px;
+      cursor: pointer;
+      padding-left: 11px;
+      padding-right: 11px;
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 27px;
+      font-size: 17px;
+      color: #8C8D91;
+
+      &:hover {
+        background: #111215;
+      }
+    }
   }
 
   .itemContainer {
@@ -43,7 +59,7 @@
         display: inline-block;
         width: auto;
         line-height: 27px;
-        font-family: Open Sans;
+        font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 18px;

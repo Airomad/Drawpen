@@ -36,7 +36,12 @@ export default class Tool extends React.Component {
     const Icon = this.IconComponent;
     const iconColor = this.props.selectedToolId === this._id || this.state.isHover ? '#3AF0AE' : '#646464';
     return (
-      <div className={style.container} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>
+      <div
+        className={style.container}
+        onMouseEnter={this.toggleHover}
+        onMouseLeave={this.toggleHover}
+        onClick={() => this.props.onSelectTool(this._id)}
+      >
         <div className={style.icon} style={{width: this.iconWidth, height: this.iconHeight}}>
           <Icon color={iconColor} />
         </div>

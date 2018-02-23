@@ -9,10 +9,19 @@ export default class Header extends React.Component {
     this.state = {
         menuOpenItemId: null
     };
-    this.items = [
-      'File',
-      'Edit'
-    ];
+    this.items = new Map();
+    this.items.set('File', [
+      'Create new',
+      'Save image'
+    ]);
+    this.items.set('Edit', [
+      'Undo',
+      'Redo'
+    ]);
+    this.items.set('Help', [
+      'Shortcuts',
+      'About'
+    ]);
   }
  
   toggle = (item) => {
@@ -29,9 +38,21 @@ export default class Header extends React.Component {
     console.log('You clicked an item');
   }
 
+  renderDropdownElements(elements) {
+    const list = [];
+    elements.forEach(element => {
+      list.push(
+        <div key={element} className={style.dropdownElement}>
+          {element}
+        </div>
+      );
+    });
+    return list;
+  }
+
   renderItems() {
     const dropdowns = [];
-    this.items.forEach((item) => {
+    for (const [item, elements] of this.items) {
       const options = {
         isOpen: this.state.menuOpenItemId === item,
         close: this.close,
@@ -47,11 +68,11 @@ export default class Header extends React.Component {
       dropdowns.push(
         <DropdownMenu {...options}>
           <div className={style.dropdown}>
-            <a href="#">Item inside</a>
+            {this.renderDropdownElements(elements)}
           </div>
         </DropdownMenu>
       );
-    });
+    }
     return dropdowns;
   }
 
